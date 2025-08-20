@@ -2,8 +2,8 @@ import { Brain, Github, Linkedin, Youtube, MessageCircle, Heart } from "lucide-r
 
 export const Footer = () => {
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/Ayamgenerationalthinker", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/prince-kojo-ofosu-fiebor-48917a268/", label: "LinkedIn" },
     { icon: Youtube, href: "#", label: "YouTube (AGT TECH)" },
     { icon: MessageCircle, href: "#", label: "TikTok (Coach_AGT)" },
   ];

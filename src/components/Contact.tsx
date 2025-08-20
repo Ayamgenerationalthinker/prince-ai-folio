@@ -11,13 +11,13 @@ export const Contact = () => {
     {
       name: "GitHub",
       icon: Github,
-      url: "#",
+      url: "https://github.com/Ayamgenerationalthinker",
       description: "View my code repositories and open source contributions"
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "#",
+      url: "https://www.linkedin.com/in/prince-kojo-ofosu-fiebor-48917a268/",
       description: "Connect with me professionally and see my career journey"
     },
     {
@@ -38,8 +38,8 @@ export const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "prince.fiebor@example.com",
-      href: "mailto:prince.fiebor@example.com"
+      value: "princefiebor10@gmail.com",
+      href: "mailto:princefiebor10@gmail.com"
     },
     {
       icon: MapPin,

@@ -6,21 +6,57 @@ import { ExternalLink, Github, Brain, Database, Globe, Users, BookOpen, Trending
 export const Projects = () => {
   const projects = [
     {
-      title: "Daily Inspirational Quote App",
-      description: "A mobile/web application that delivers personalized daily motivational quotes using AI-generated content and machine learning to understand user preferences.",
+      title: "AI Customer Support Chatbot (FUTURE_ML_O3)",
+      description: "Advanced AI-powered customer support chatbot using natural language processing and machine learning to provide intelligent, context-aware responses for enhanced customer service experiences.",
       icon: Brain,
-      tags: ["AI/ML", "React", "Python", "TensorFlow"],
+      tags: ["AI/ML", "Python", "NLP", "TensorFlow", "Flask"],
       category: "AI Project",
+      status: "Completed",
+      links: {
+        github: "https://github.com/Ayamgenerationalthinker/FUTURE_ML_O3",
+        demo: "#"
+      }
+    },
+    {
+      title: "Stock Price Prediction System (FUTURE_ML_O2)",
+      description: "Machine learning model for predicting stock prices using historical data analysis, technical indicators, and deep learning algorithms to forecast market trends.",
+      icon: TrendingUp,
+      tags: ["Python", "Machine Learning", "LSTM", "Pandas", "Matplotlib"],
+      category: "AI Project",
+      status: "Completed",
+      links: {
+        github: "https://github.com/Ayamgenerationalthinker/FUTURE_ML_O2",
+        demo: "#"
+      }
+    },
+    {
+      title: "Sales Forecasting Model (FUTURE_ML_O1)",
+      description: "Predictive analytics system for sales forecasting using time series analysis and machine learning to help businesses make data-driven decisions.",
+      icon: Database,
+      tags: ["Python", "Time Series", "Scikit-learn", "Data Analysis"],
+      category: "AI Project",
+      status: "Completed",
+      links: {
+        github: "https://github.com/Ayamgenerationalthinker/FUTURE_ML_O1",
+        demo: "#"
+      }
+    },
+    {
+      title: "Mahogany Wellness Pathways",
+      description: "Comprehensive health and wellness platform providing personalized wellness tracking, health recommendations, and community support for holistic well-being.",
+      icon: Users,
+      tags: ["React", "Node.js", "Health Tech", "MongoDB"],
+      category: "Web Development",
       status: "In Development",
       links: {
-        github: "#",
+        github: "https://github.com/Ayamgenerationalthinker/mahogany-wellness-pathways",
         demo: "#"
       }
     },
     {
       title: "Question Bank Management System",
       description: "A comprehensive PHP-based system for educational institutions to manage exam questions efficiently with automated categorization and difficulty assessment.",
-      icon: Database,
+      icon: BookOpen,
       tags: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
       category: "Web Development",
       status: "Completed",
@@ -30,45 +66,9 @@ export const Projects = () => {
       }
     },
     {
-      title: "Distributed Systems Research",
-      description: "Comprehensive research presentations on mutual exclusion algorithms, process coordination, and group communication protocols in distributed computing environments.",
-      icon: Globe,
-      tags: ["Research", "Algorithms", "Distributed Systems"],
-      category: "Research Work",
-      status: "Published",
-      links: {
-        github: "#",
-        paper: "#"
-      }
-    },
-    {
-      title: "Health Pharmacy Website",
-      description: "Full-stack web application for pharmacy management including inventory tracking, prescription management, and customer service features.",
-      icon: Database,
-      tags: ["React", "Node.js", "MongoDB", "Express"],
-      category: "Web Development",
-      status: "Completed",
-      links: {
-        github: "#",
-        demo: "#"
-      }
-    },
-    {
-      title: "Examination Malpractice Analysis",
-      description: "Research project analyzing patterns in examination malpractice using statistical methods and proposing technology-based prevention solutions.",
-      icon: BookOpen,
-      tags: ["Research", "Data Analysis", "Python", "Statistics"],
-      category: "Research Work",
-      status: "Completed",
-      links: {
-        github: "#",
-        paper: "#"
-      }
-    },
-    {
       title: "Digital Skills Training Platform",
       description: "Educational platform documenting and teaching digital entrepreneurship, affiliate marketing, and emerging technology skills through AGT TECH.",
-      icon: TrendingUp,
+      icon: Globe,
       tags: ["Education", "React", "Content Creation"],
       category: "Community Project",
       status: "Ongoing",
@@ -142,28 +142,22 @@ export const Projects = () => {
                   ))}
                 </div>
                 
-                {/* Action Buttons */}
+                 {/* Action Buttons */}
                 <div className="flex gap-2 mt-auto">
                   {project.links.github && (
-                    <Button variant="outline" size="sm" className="flex-1">
+                    <Button variant="outline" size="sm" className="flex-1" onClick={() => window.open(project.links.github, '_blank')}>
                       <Github className="w-4 h-4 mr-2" />
                       Code
                     </Button>
                   )}
                   {project.links.demo && (
-                    <Button variant="outline" size="sm" className="flex-1">
+                    <Button variant="outline" size="sm" className="flex-1" onClick={() => window.open(project.links.demo, '_blank')}>
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Demo
                     </Button>
                   )}
-                  {project.links.paper && (
-                    <Button variant="outline" size="sm" className="flex-1">
-                      <BookOpen className="w-4 h-4 mr-2" />
-                      Paper
-                    </Button>
-                  )}
                   {project.links.youtube && (
-                    <Button variant="outline" size="sm" className="flex-1">
+                    <Button variant="outline" size="sm" className="flex-1" onClick={() => window.open(project.links.youtube, '_blank')}>
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Watch
                     </Button>
@@ -179,7 +173,7 @@ export const Projects = () => {
           <p className="text-muted-foreground mb-6">
             Interested in collaborating or learning more about my work?
           </p>
-          <Button size="lg" className="px-8 py-3 glow-effect">
+          <Button size="lg" className="px-8 py-3 glow-effect" onClick={() => window.open('https://github.com/Ayamgenerationalthinker', '_blank')}>
             <Github className="w-5 h-5 mr-2" />
             View All Projects on GitHub
           </Button>
