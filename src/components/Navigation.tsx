@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Brain } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,6 +55,7 @@ export const Navigation = () => {
                 {item.name}
               </button>
             ))}
+            <ThemeToggle />
             <Button 
               size="sm" 
               className="glow-effect"
@@ -85,13 +87,16 @@ export const Navigation = () => {
                   {item.name}
                 </button>
               ))}
-              <Button 
-                size="sm" 
-                className="w-full mt-4"
-                onClick={() => scrollToSection("#contact")}
-              >
-                Let's Connect
-              </Button>
+              <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                <ThemeToggle />
+                <Button 
+                  size="sm" 
+                  className="flex-1 ml-4"
+                  onClick={() => scrollToSection("#contact")}
+                >
+                  Let's Connect
+                </Button>
+              </div>
             </div>
           </div>
         )}
