@@ -4,7 +4,7 @@ export const Footer = () => {
   const socialLinks = [
     { icon: Github, href: "https://github.com/Ayamgenerationalthinker", label: "GitHub" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/prince-kojo-ofosu-fiebor-48917a268/", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube (AGT TECH)" },
+    { icon: MessageCircle, href: "https://www.instagram.com/agt_tech_/", label: "Instagram (AGT_TECH_)" },
     { icon: MessageCircle, href: "#", label: "TikTok (Coach_AGT)" },
   ];
 
@@ -61,7 +61,7 @@ export const Footer = () => {
         {/* Bottom Section */}
         <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 Prince Fiebor. All rights reserved.
+            © 2025 Prince Fiebor. All rights reserved.
           </p>
           <div className="flex items-center gap-1 text-sm text-muted-foreground">
             <span>Built with</span>

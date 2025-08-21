@@ -21,10 +21,10 @@ export const Contact = () => {
       description: "Connect with me professionally and see my career journey"
     },
     {
-      name: "YouTube (AGT TECH)",
-      icon: Youtube,
-      url: "#",
-      description: "Educational content on AI, tech, and digital skills"
+      name: "Instagram (AGT_TECH_)",
+      icon: MessageCircle,
+      url: "https://www.instagram.com/agt_tech_/",
+      description: "Behind-the-scenes content and tech inspiration"
     },
     {
       name: "TikTok (Coach_AGT)",
@@ -78,7 +78,12 @@ export const Contact = () => {
             <Card className="project-card">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
-                <form action="https://formspree.io/f/mblknrkr" method="POST" className="space-y-6">
+                <form 
+                  action="https://formspree.io/f/mblknrkr" 
+                  method="POST" 
+                  className="space-y-6"
+                  onSubmit={() => setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100)}
+                >
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Name</Label>
@@ -136,9 +141,9 @@ export const Contact = () => {
           </div>
 
           {/* Contact Info & Social Links */}
-          <div className="space-y-6">
+          <div className="space-y-6 h-fit">
             {/* Direct Contact */}
-            <Card className="project-card">
+            <Card className="project-card h-full">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
                 <div className="space-y-4">
@@ -165,7 +170,7 @@ export const Contact = () => {
             </Card>
 
             {/* Social Links */}
-            <Card className="project-card">
+            <Card className="project-card h-full">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Follow My Work</h3>
                 <div className="space-y-4">
@@ -189,8 +194,8 @@ export const Contact = () => {
             </Card>
             
             {/* Availability Status */}
-            <Card className="project-card">
-              <CardContent className="p-6 text-center">
+            <Card className="project-card h-full">
+              <CardContent className="p-6 text-center flex flex-col justify-center">
                 <div className="w-3 h-3 bg-green-500 rounded-full mx-auto mb-3 animate-pulse" />
                 <h3 className="font-semibold mb-2">Currently Available</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
