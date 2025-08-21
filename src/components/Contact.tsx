@@ -5,8 +5,48 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Github, Linkedin, Youtube, MessageCircle, Send, MapPin, Phone } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 export const Contact = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mblknrkr', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   const socialLinks = [
     {
       name: "GitHub",
@@ -79,10 +119,8 @@ export const Contact = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
                 <form 
-                  action="https://formspree.io/f/mblknrkr" 
-                  method="POST" 
+                  onSubmit={handleSubmit}
                   className="space-y-6"
-                  onSubmit={() => setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100)}
                 >
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -131,9 +169,9 @@ export const Contact = () => {
                     />
                   </div>
                   
-                  <Button type="submit" size="lg" className="w-full glow-effect">
+                  <Button type="submit" size="lg" className="w-full glow-effect" disabled={isSubmitting}>
                     <Send className="w-5 h-5 mr-2" />
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
