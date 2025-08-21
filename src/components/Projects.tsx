@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Brain, Database, Globe, Users, BookOpen, TrendingUp } from "lucide-react";
+import { ExternalLink, Github, Brain, Database, Globe, Users, BookOpen, TrendingUp, PenTool, Target, Lightbulb } from "lucide-react";
 
 export const Projects = () => {
   const projects = [
@@ -54,15 +54,48 @@ export const Projects = () => {
       }
     },
     {
-      title: "Question Bank Management System",
-      description: "A comprehensive PHP-based system for educational institutions to manage exam questions efficiently with automated categorization and difficulty assessment.",
-      icon: BookOpen,
-      tags: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
-      category: "Web Development",
-      status: "Completed",
+      title: "AGT TECH - AI Education Platform",
+      description: "Empowering Africa with AI Education, Community & Tech Solutions. A comprehensive platform training 500+ Africans in AI skills with 95% success rate.",
+      icon: Brain,
+      tags: ["React", "AI Education", "Community", "Next.js", "Tailwind CSS"],
+      category: "Education Platform",
+      status: "Live",
       links: {
-        github: "#",
-        demo: "#"
+        demo: "https://agt-tech-qyn4.vercel.app/",
+        github: "#"
+      }
+    },
+    {
+      title: "My AI/ML Journey Blog Post",
+      description: "Documenting my path as a Level 300 Computer Science student at Ghana Communication Technology University, sharing insights into AI/ML learning experiences.",
+      icon: PenTool,
+      tags: ["AI/ML", "Education", "Blog", "Personal Journey"],
+      category: "Blog Post",
+      status: "Published",
+      links: {
+        demo: "https://ayamgenerationalth.wixsite.com/agt-tech/post/my-ai-ml-journey-documenting-my-path-as-a-level-300-computer-science-student-at-ghana-communication"
+      }
+    },
+    {
+      title: "How I Bombed My First Two Interviews",
+      description: "A candid reflection on my first job interview experiences, the lessons learned from failure, and how setbacks became stepping stones to growth.",
+      icon: Target,
+      tags: ["Career", "Interviews", "Personal Growth", "Lessons"],
+      category: "Blog Post", 
+      status: "Published",
+      links: {
+        demo: "https://ayamgenerationalth.wixsite.com/agt-tech/post/how-i-bombed-my-first-two-interviews-and-what-they-taught-me"
+      }
+    },
+    {
+      title: "From Two Rejections to Huawei",
+      description: "How I turned failure into fuel and secured an opportunity at Huawei after facing rejections. A story of persistence, growth, and preparation.",
+      icon: Lightbulb,
+      tags: ["Career", "Success Story", "Huawei", "Persistence"],
+      category: "Blog Post",
+      status: "Published", 
+      links: {
+        demo: "https://ayamgenerationalth.wixsite.com/agt-tech/post/from-two-rejections-to-huawei-how-i-turned-failure-into-fuel"
       }
     },
     {
@@ -84,6 +117,7 @@ export const Projects = () => {
       case "Completed": return "bg-green-500/10 text-green-500 border-green-500/20";
       case "In Development": return "bg-yellow-500/10 text-yellow-500 border-yellow-500/20";
       case "Published": return "bg-blue-500/10 text-blue-500 border-blue-500/20";
+      case "Live": return "bg-emerald-500/10 text-emerald-500 border-emerald-500/20";
       case "Ongoing": return "bg-purple-500/10 text-purple-500 border-purple-500/20";
       default: return "bg-muted text-muted-foreground";
     }
