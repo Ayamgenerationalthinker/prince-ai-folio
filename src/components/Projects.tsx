@@ -97,18 +97,6 @@ export const Projects = () => {
       links: {
         demo: "https://ayamgenerationalth.wixsite.com/agt-tech/post/from-two-rejections-to-huawei-how-i-turned-failure-into-fuel"
       }
-    },
-    {
-      title: "Digital Skills Training Platform",
-      description: "Educational platform documenting and teaching digital entrepreneurship, affiliate marketing, and emerging technology skills through AGT TECH.",
-      icon: Globe,
-      tags: ["Education", "React", "Content Creation"],
-      category: "Community Project",
-      status: "Ongoing",
-      links: {
-        demo: "#",
-        youtube: "#"
-      }
     }
   ];
 
@@ -178,20 +166,20 @@ export const Projects = () => {
                 
                  {/* Action Buttons */}
                 <div className="flex gap-2 mt-auto">
-                  {project.links.github && (
+                  {project.links.github && project.links.github !== "#" && (
                     <Button variant="outline" size="sm" className="flex-1" onClick={() => window.open(project.links.github, '_blank')}>
                       <Github className="w-4 h-4 mr-2" />
                       Code
                     </Button>
                   )}
-                  {project.links.demo && (
+                  {project.links.demo && project.links.demo !== "#" && (
                     <Button variant="outline" size="sm" className="flex-1" onClick={() => window.open(project.links.demo, '_blank')}>
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Demo
                     </Button>
                   )}
-                  {project.links.youtube && (
-                    <Button variant="outline" size="sm" className="flex-1" onClick={() => window.open(project.links.youtube, '_blank')}>
+                  {(project.links as any).youtube && (project.links as any).youtube !== "#" && (
+                    <Button variant="outline" size="sm" className="flex-1" onClick={() => window.open((project.links as any).youtube, '_blank')}>
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Watch
                     </Button>

@@ -75,7 +75,7 @@ export const About = () => {
             <h3 className="text-2xl font-semibold mb-4 text-gradient-animate">My Journey</h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                My fascination with technology began early, but it was discovering the potential 
+                My fascination with technology started late, but it was discovering the potential 
                 of Artificial Intelligence that truly ignited my passion. As an undergraduate at 
                 GCTU, I've dedicated myself to understanding how AI can solve real-world problems.
               </p>

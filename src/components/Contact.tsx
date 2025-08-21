@@ -78,23 +78,27 @@ export const Contact = () => {
             <Card className="project-card">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
-                <form className="space-y-6">
+                <form action="https://formspree.io/f/mblknrkr" method="POST" className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Name</Label>
                       <Input 
                         id="name" 
+                        name="name"
                         placeholder="Your full name" 
                         className="bg-background/50"
+                        required
                       />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
                       <Input 
                         id="email" 
+                        name="email"
                         type="email" 
                         placeholder="your.email@example.com" 
                         className="bg-background/50"
+                        required
                       />
                     </div>
                   </div>
@@ -103,8 +107,10 @@ export const Contact = () => {
                     <Label htmlFor="subject">Subject</Label>
                     <Input 
                       id="subject" 
+                      name="subject"
                       placeholder="What's this about?" 
                       className="bg-background/50"
+                      required
                     />
                   </div>
                   
@@ -112,13 +118,15 @@ export const Contact = () => {
                     <Label htmlFor="message">Message</Label>
                     <Textarea 
                       id="message" 
+                      name="message"
                       placeholder="Tell me about your project, collaboration idea, or question..."
                       rows={6}
                       className="bg-background/50"
+                      required
                     />
                   </div>
                   
-                  <Button size="lg" className="w-full glow-effect">
+                  <Button type="submit" size="lg" className="w-full glow-effect">
                     <Send className="w-5 h-5 mr-2" />
                     Send Message
                   </Button>
