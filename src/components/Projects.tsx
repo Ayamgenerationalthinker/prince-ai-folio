@@ -6,39 +6,47 @@ import { ExternalLink, Github, Brain, Database, Globe, Users, BookOpen, Trending
 export const Projects = () => {
   const projects = [
     {
-      title: "AI Customer Support Chatbot (FUTURE_ML_O3)",
+      title: "VerifyAI",
+      description: "Advanced AI verification platform designed to authenticate and validate AI-generated content, ensuring transparency and trust in AI-driven digital communications.",
+      icon: Brain,
+      tags: ["AI/ML", "Verification", "Next.js", "TypeScript", "Machine Learning"],
+      category: "AI Project",
+      status: "Live",
+      links: {
+        demo: "https://verifyai-ten.vercel.app/"
+      }
+    },
+    {
+      title: "AI Customer Support Chatbot",
       description: "Advanced AI-powered customer support chatbot using natural language processing and machine learning to provide intelligent, context-aware responses for enhanced customer service experiences.",
       icon: Brain,
       tags: ["AI/ML", "Python", "NLP", "TensorFlow", "Flask"],
       category: "AI Project",
       status: "Completed",
       links: {
-        github: "https://github.com/Ayamgenerationalthinker/FUTURE_ML_O3",
-        demo: "#"
+        github: "https://github.com/Ayamgenerationalthinker/FUTURE_ML_O3"
       }
     },
     {
-      title: "Stock Price Prediction System (FUTURE_ML_O2)",
+      title: "Stock Price Prediction System",
       description: "Machine learning model for predicting stock prices using historical data analysis, technical indicators, and deep learning algorithms to forecast market trends.",
       icon: TrendingUp,
       tags: ["Python", "Machine Learning", "LSTM", "Pandas", "Matplotlib"],
       category: "AI Project",
       status: "Completed",
       links: {
-        github: "https://github.com/Ayamgenerationalthinker/FUTURE_ML_O2",
-        demo: "#"
+        github: "https://github.com/Ayamgenerationalthinker/FUTURE_ML_O2"
       }
     },
     {
-      title: "Sales Forecasting Model (FUTURE_ML_O1)",
+      title: "Sales Forecasting Model",
       description: "Predictive analytics system for sales forecasting using time series analysis and machine learning to help businesses make data-driven decisions.",
       icon: Database,
       tags: ["Python", "Time Series", "Scikit-learn", "Data Analysis"],
       category: "AI Project",
       status: "Completed",
       links: {
-        github: "https://github.com/Ayamgenerationalthinker/FUTURE_ML_O1",
-        demo: "#"
+        github: "https://github.com/Ayamgenerationalthinker/FUTURE_ML_O1"
       }
     },
     {
@@ -50,7 +58,7 @@ export const Projects = () => {
       status: "In Development",
       links: {
         github: "https://github.com/Ayamgenerationalthinker/mahogany-wellness-pathways",
-        demo: "#"
+        demo: "https://www.mahoganyshealthwellness.com/"
       }
     },
     {
@@ -129,9 +137,9 @@ export const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <Card key={index} className="project-card group h-full">
+            <Card key={index} className="project-card group h-full flex flex-col">
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between mb-3">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -144,19 +152,19 @@ export const Projects = () => {
                     {project.status}
                   </Badge>
                 </div>
-                <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
+                <CardTitle className="text-lg mb-2 line-clamp-2">{project.title}</CardTitle>
                 <Badge variant="secondary" className="w-fit mb-3">
                   {project.category}
                 </Badge>
               </CardHeader>
               
               <CardContent className="flex flex-col flex-grow">
-                <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
+                <p className="text-muted-foreground leading-relaxed mb-4 flex-grow text-sm line-clamp-4">
                   {project.description}
                 </p>
                 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-6 min-h-[60px]">
                   {project.tags.map((tag, tagIndex) => (
                     <Badge key={tagIndex} variant="outline" className="text-xs">
                       {tag}

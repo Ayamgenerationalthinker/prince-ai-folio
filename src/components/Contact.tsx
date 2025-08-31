@@ -61,16 +61,10 @@ export const Contact = () => {
       description: "Connect with me professionally and see my career journey"
     },
     {
-      name: "Instagram (AGT_TECH_)",
+      name: "Instagram",
       icon: MessageCircle,
       url: "https://www.instagram.com/agt_tech_/",
       description: "Behind-the-scenes content and tech inspiration"
-    },
-    {
-      name: "TikTok (Coach_AGT)",
-      icon: MessageCircle,
-      url: "#",
-      description: "Quick tech tips and motivational content"
     }
   ];
 
@@ -112,15 +106,15 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="project-card">
-              <CardContent className="p-8">
+            <Card className="project-card h-full">
+              <CardContent className="p-8 h-full flex flex-col">
                 <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
                 <form 
                   onSubmit={handleSubmit}
-                  className="space-y-6"
+                  className="space-y-6 flex-grow flex flex-col"
                 >
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -157,19 +151,19 @@ export const Contact = () => {
                     />
                   </div>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-2 flex-grow">
                     <Label htmlFor="message">Message</Label>
                     <Textarea 
                       id="message" 
                       name="message"
                       placeholder="Tell me about your project, collaboration idea, or question..."
                       rows={6}
-                      className="bg-background/50"
+                      className="bg-background/50 flex-grow resize-none"
                       required
                     />
                   </div>
                   
-                  <Button type="submit" size="lg" className="w-full glow-effect" disabled={isSubmitting}>
+                  <Button type="submit" size="lg" className="w-full glow-effect mt-auto" disabled={isSubmitting}>
                     <Send className="w-5 h-5 mr-2" />
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
@@ -179,12 +173,12 @@ export const Contact = () => {
           </div>
 
           {/* Contact Info & Social Links */}
-          <div className="space-y-6 h-fit">
+          <div className="flex flex-col gap-6 h-full">
             {/* Direct Contact */}
-            <Card className="project-card h-full">
-              <CardContent className="p-6">
+            <Card className="project-card flex-1">
+              <CardContent className="p-6 h-full flex flex-col">
                 <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-                <div className="space-y-4">
+                <div className="space-y-4 flex-grow">
                   {contactInfo.map((info, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <info.icon className="w-5 h-5 text-primary mt-0.5" />
@@ -208,14 +202,16 @@ export const Contact = () => {
             </Card>
 
             {/* Social Links */}
-            <Card className="project-card h-full">
-              <CardContent className="p-6">
+            <Card className="project-card flex-1">
+              <CardContent className="p-6 h-full flex flex-col">
                 <h3 className="text-xl font-semibold mb-4">Follow My Work</h3>
-                <div className="space-y-4">
+                <div className="space-y-4 flex-grow">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-start gap-3 p-3 rounded-lg bg-background/30 hover:bg-background/50 transition-colors group"
                     >
                       <social.icon className="w-5 h-5 text-primary mt-0.5 group-hover:scale-110 transition-transform" />
@@ -232,8 +228,8 @@ export const Contact = () => {
             </Card>
             
             {/* Availability Status */}
-            <Card className="project-card h-full">
-              <CardContent className="p-6 text-center flex flex-col justify-center">
+            <Card className="project-card flex-1">
+              <CardContent className="p-6 h-full flex flex-col justify-center text-center">
                 <div className="w-3 h-3 bg-green-500 rounded-full mx-auto mb-3 animate-pulse" />
                 <h3 className="font-semibold mb-2">Currently Available</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -256,8 +252,13 @@ export const Contact = () => {
               Whether it's research, development, or education—let's explore how we can 
               create positive impact through technology.
             </p>
-            <Button variant="secondary" size="lg" className="px-8 py-3">
-              <Mail className="w-5 h-5 mr-2" />
+            <Button 
+              variant="secondary" 
+              size="lg" 
+              className="px-8 py-3"
+              onClick={() => window.open('https://wa.me/233531554625?text=Hello%20Prince!%20I%27d%20like%20to%20discuss%20a%20project%20with%20you.', '_blank')}
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
               Start a Conversation
             </Button>
           </div>
