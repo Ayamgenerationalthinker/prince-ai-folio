@@ -55,9 +55,8 @@ export const Projects = () => {
       icon: Users,
       tags: ["React", "Node.js", "Health Tech", "MongoDB"],
       category: "Web Development",
-      status: "In Development",
+      status: "Live",
       links: {
-        github: "https://github.com/Ayamgenerationalthinker/mahogany-wellness-pathways",
         demo: "https://www.mahoganyshealthwellness.com/"
       }
     },
