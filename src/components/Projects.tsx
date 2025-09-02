@@ -13,7 +13,7 @@ export const Projects = () => {
       category: "AI Project",
       status: "Live",
       links: {
-        demo: "https://verifyai-ten.vercel.app/"
+        demo: "https://verify-ai-teal.vercel.app/"
       }
     },
     {
