@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Brain } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,16 +19,48 @@ export const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "#about", type: "scroll" },
+    { name: "Projects", href: "/projects", type: "route" },
+    { name: "Experience", href: "/experience", type: "route" },
+    { name: "Contact", href: "#contact", type: "scroll" },
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleNavigation = (item: { name: string; href: string; type: string }) => {
+    if (item.type === "route") {
+      navigate(item.href);
+    } else if (item.type === "scroll") {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          const element = document.querySelector(item.href);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      } else {
+        const element = document.querySelector(item.href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+    setIsOpen(false);
+  };
+
+  const handleConnectClick = () => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.querySelector("#contact");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.querySelector("#contact");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsOpen(false);
   };
@@ -37,7 +72,7 @@ export const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
             <img 
               src="/favicon.png" 
               alt="Prince Fiebor" 
@@ -51,7 +86,7 @@ export const Navigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleNavigation(item)}
                 className="text-muted-foreground hover:text-foreground transition-colors font-medium"
               >
                 {item.name}
@@ -61,7 +96,7 @@ export const Navigation = () => {
             <Button 
               size="sm" 
               className="glow-effect"
-              onClick={() => scrollToSection("#contact")}
+              onClick={handleConnectClick}
             >
               Let's Connect
             </Button>
@@ -83,7 +118,7 @@ export const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavigation(item)}
                   className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
                 >
                   {item.name}
@@ -94,7 +129,7 @@ export const Navigation = () => {
                 <Button 
                   size="sm" 
                   className="flex-1 ml-4"
-                  onClick={() => scrollToSection("#contact")}
+                  onClick={handleConnectClick}
                 >
                   Let's Connect
                 </Button>
